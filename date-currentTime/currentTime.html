@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取当前系统时间</title>
+    <style>
+        .time{
+            width:50%;
+            height:40px;
+            line-height: 40px;
+            text-align: center;
+            margin:0 auto;
+            border:1px solid lightskyblue;
+            background-color: lightblue;
+            font-size:30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="time"></div>
+    <script>
+        updateTime()
+        setInterval(updateTime, 1000)
+        function updateTime() {
+            let currentTime = new Date();
+            let year = currentTime.getFullYear()
+            let month = currentTime.getMonth() + 1
+            let date = currentTime.getDate()
+            let hour = currentTime.getHours();
+            let minute = currentTime.getMinutes();
+            let second = currentTime.getSeconds();
+            let day = currentTime.getDay();
+
+            if(day === 0) day = '星期日'
+            if(day === 1) day = '星期一'
+            if(day === 2) day = '星期二'
+            if(day === 3) day = '星期三'
+            if(day === 4) day = '星期四'
+            if(day === 5) day = '星期五'
+            if(day === 6) day = '星期六' 
+
+            let str = '现在的时间是'
+            str += year + '年' + double(month) + '月' + double(date) + '日' + double(hour) + '时' + double(minute) + '分' + double(second) + '秒' + ' ' + day
+            if (hour > 11 && hour < 13) {
+                str = "中午好" + str;
+            } else if(hour >= 13 && hour < 19) {
+                str = "下午好 " + str
+            } else if (hour >= 19 && hour < 24){
+                str = '晚上好 ' + str
+            } else {
+                str = '凌晨好 ' + str
+            }
+            document.querySelector('.time').innerHTML = str;
+        }
+        
+        //double Digits
+        function double(n) {
+            return n > 9 ? "" + n : "0" + n;
+        }
+    </script>
+</body>
+
+</html>

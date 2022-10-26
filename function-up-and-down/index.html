@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Up & Down</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: aqua;
+            position: fixed;
+            left: 50px;
+            top: 50px;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+    <script src="./kquery.js"></script>
+</head>
+
+<body>
+    
+    <script>
+        //初始化：生成20个ball
+        let str = ''
+        len = 12
+        for(var i=0; i < len; i++){
+            str += `<div style='left:${(i + 1) * 100 - 50}px'>${i+1}</div>`
+        }
+        document.write(str)
+        //获取div
+        const aDiv = document.querySelectorAll('div')
+        let timer = null,
+            n = 0,
+            flag = true,
+            finished = true
+        //添加点击事件
+        document.addEventListener('click',function(){
+            if(!finished) return
+            finished = false
+            clearInterval(timer)
+            //moveFn(ele, attr, step, target, callback)
+            timer = setInterval(function(){
+                moveFn(aDiv[n], 'top', 10, flag ? 500 : 50,n == len -1 ? function(){
+                    finished = true
+                    flag = !flag
+                }: null)
+                n++
+                if(n === len){
+                    clearInterval(timer)
+                    n = 0
+                }
+            },100)
+        })
+    </script>
+</body>
+
+</html>

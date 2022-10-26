@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .layout-wrap{border:1px solid red;}
+        .layout-container{border:1px solid blue;}
+    </style>
+</head>
+
+<body>
+    <!--body-->
+    <div class="layout-wrap">
+        <div class="header">
+            <div class="header-container">
+                <h1 class="header-logo"><a href="/" class="logo">翻译君</a></h1>
+                <p class="header-slogan">全新人工智能翻译， 句子、文章、论文、资料翻译首选</p>
+                <div class="header-download-btn material-design">
+                    <div class="header-download-btn-text"></div>
+                    <canvas width="144" height="34" style="width: 100%; height: 100%;" id="canvas"></canvas>
+                </div>
+                <div class="header-download-btn beta">
+                    <a href="//dldir1.qq.com/invc/tt/translator/release/translator_0.1.0.69_signed.pkg" target="_blank">
+                        <div class="bata-text"></div>
+                        <canvas width="144" height="34" style="width: 100%; height: 100%;" id="canvasBeta"></canvas>
+                    </a>
+                </div>
+                <div class="hoverLayer hiden">
+                    <i class="hoverLayer-code"></i>
+                    <i class="hoverLayer-text"></i>
+                </div>
+                <div class="header-qrcode">
+                    <div class="qrcode-download">
+                        <div class="qrcode-img-wrapper">
+                            <div class="qrcode-img code"></div>
+                            <p>扫描二维码下载翻译君</p>
+                        </div>
+                        <div class="qrcode-img-wrapper">
+                            <div class="qrcode-img process"></div>
+                            <p>扫描体验翻译君小程序</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-nav clearfix" node-type="header-nav">
+                    <a class="header-nav-btn active" href="/">在线翻译</a>
+                    <a class="header-nav-btn " href="/intro">产品介绍</a>
+                    <a class="header-nav-btn" href="/translateapi">翻译 API</a>
+                    <a class="header-nav-btn" href="/tongchuan">腾讯同传</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layout-container">
+        <div wb-type="module" wb-module="language" class="language">
+            <div class="language-container clearfix">
+                <div class="language-button-group" id="language-button-group-source">
+                    <div class="language-button" node-type="source_language_button">
+                        <span class="language-button-text">自动检测</span><span class="language-button-arraw"></span>
+                    </div>
+                    <div class="language-button-dropdown language-source" node-type="source_language_dropdown">
+                        <div class="language-button-box"></div>
+                        <ul class="clearfix" node-type="source_language_list">
+                            <li class="active"><span>自动识别</span></li>
+                            <li><span>中文</span></li>
+                            <li><span>英语</span></li>
+                            <li><span>日语</span></li>
+                            <li><span>韩语</span></li>
+                            <li><span>法语</span></li>
+                            <li><span>西班牙语</span></li>
+                            <li><span>意大利语</span></li>
+                            <li><span>德语</span></li>
+                            <li><span>土耳其语</span></li>
+                            <li><span>俄语</span></li>
+                            <li><span>葡萄牙语</span></li>
+                            <li><span>越南语</span></li>
+                            <li><span>印尼语</span></li>
+                            <li><span>泰语</span></li>
+                            <li><span>马来西亚语</span></li>
+                            <li><span>阿拉伯语</span></li>
+                            <li><span>印地语</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="language-button-group" id="language-button-group-exchange">
+                    <div class="language-exchange-button disable" node-type="exchange_language_button"></div>
+                </div>
+                <div class="language-button-group" id="language-button-group-target">
+                    <div class="language-button" node-type="target_language_button">
+                        中文<span class="language-button-arraw"></span>
+                    </div>
+                    <div class="language-button-dropdown language-target" node-type="target_language_dropdown">
+                        <div class="language-button-box"></div>
+                        <ul class="clearfix" node-type="target_language_list">
+                            <li class="active"><span>中文</span></li>
+                            <li><span>英语</span></li>
+                            <li><span>日语</span></li>
+                            <li><span>韩语</span></li>
+                            <li><span>法语</span></li>
+                            <li><span>西班牙语</span></li>
+                            <li><span>意大利语</span></li>
+                            <li><span>德语</span></li>
+                            <li><span>土耳其语</span></li>
+                            <li><span>俄语</span></li>
+                            <li><span>葡萄牙语</span></li>
+                            <li><span>越南语</span></li>
+                            <li><span>印尼语</span></li>
+                            <li><span>泰语</span></li>
+                            <li><span>马来西亚语</span></li>
+                            <li><span>阿拉伯语</span></li>
+                            <li><span>印地语</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="language-button-group" id="language-button-group-translate">
+                    <div class="language-translate-button" node-type="translate_button">翻 译</div>
+                    <a class="language-human-button" node-type="human-translation" target="_blank"
+                        href="http://cipgtrans.com/Home/RedirectTrans?APPID=e735f1bedab31146"><i
+                            class="human-translation"></i>人工翻译</a>
+                </div>
+            </div>
+        </div>
+        <div class="textpanel">
+            <!-- 右侧浮层 -->
+            <div class="rightLayer" node-type="rightLayer">
+                <a href="javascript: void(0)" class="rightLayer-close" node-type="rightLayer-close"></a>
+                <i class="iphone-icon" node-type="iphone-icon"></i>
+                <i class="iphone-icon-1" node-type="iphone-icon-1"></i>
+                <div class="rightLayer-download-text" node-type="rightLayer-download-text"></div>
+                <div class="rightLayer-download-text-1" node-type="rightLayer-download-text-1"></div>
+                <i class="rightLayer-code" node-type="rightLayer-code"></i>
+                <div class="rightLayer-layer" node-type="rightLayer-layer"></div>
+            </div>
+            <div class="textpanel-container clearfix">
+                <!--输入源-->
+                <div class="textpanel-source active">
+                    <div class="textpanel-source-textarea" node-type="textpanel-source-textarea">
+                        <div class="highlight" node-type="textpanel-source-highlight"></div>
+                        <textarea class="textinput" node-type="source-textarea" placeholder="请输入要翻译的文字"></textarea>
+                    </div>
+
+                    <div class="textpanel-tool tool-close" node-type="source-clean-btn" style="display: none;"></div>
+                    <div class="textpanel-tool tool-voice disable" node-type="voice-btn" data-type="source"
+                        data-tips="发音" data-limit="500"></div>
+                    <div class="textpanel-tool tool-voice-tips" node-type="tool-voice-tips">
+                        <span class="tool-voice-tips-text">仅朗读前500字符</span>
+                        <span class="tool-voice-tips-close" node-type="tool-voice-tips-close"></span>
+                        <!-- <span class="tool-voice-tips-icon"></span> -->
+                        <span class="tool-voice-tips-arrow"></span>
+                    </div>
+                    <div class="textpanel-source-suggest" node-type="textpanel-source-suggest-list">
+                        <ul class="suggest-list">
+
+                        </ul>
+                        <div class="suggest-scroll">
+                            <span class="suggest-scroll-bar"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--输出目标-->
+                <div class="textpanel-target">
+                    <div class="textpanel-target-error" node-type="textpanel-target-error">翻译上限5000字符，请将原文分开翻译</div>
+                    <div class="textpanel-target-textblock" node-type="textpanel-target-textblock">
+
+                    </div>
+
+                    <div class="textpanel-tool tool-voice disable" node-type="voice-btn" data-type="target"
+                        data-tips="发音" data-limit="500"></div>
+                    <div class="textpanel-tool tool-voice-tips" node-type="tool-voice-tips">
+                        <span class="tool-voice-tips-text">仅朗读前500字符</span>
+                        <span class="tool-voice-tips-close" node-type="tool-voice-tips-close"></span>
+                        <!-- <span class="tool-voice-tips-icon"></span> -->
+                        <span class="tool-voice-tips-arrow"></span>
+                    </div>
+                    <div class="textpanel-tool tool-copy disable" node-type="target-copy-btn" data-tips="复制"></div>
+                    <div class="textpanel-tool tool-copy-tips" node-type="tool-copy-tips">
+                        <span class="tool-copy-tips-text">文本已复制到剪贴板</span>
+                        <span class="tool-copy-tips-arrow"></span>
+                    </div>
+                    <div class="textpanel-tool tool-correct disable" node-type="target-correct-btn" data-tips="纠错">
+                    </div>
+
+                    <div class="textpanel-tool tool-star" node-type="target-star">
+                        <span class="title">评星</span>
+                        <span class="score-list" data-star="0" node-type="score-list">
+                            <span class="score-item"></span>
+                            <span class="score-item"></span>
+                            <span class="score-item"></span>
+                            <span class="score-item"></span>
+                            <span class="score-item"></span>
+                        </span>
+                        <div class="score-tips" node-type="score-tips">
+                            已提交
+                            <span class="score-tips-icon"></span>
+                            <span class="score-tips-arrow"></span>
+                        </div>
+                    </div>
+                    <div class="textpanel-tool tool-pair disable">
+                        <span class="title">双语对照</span>
+                        <div class="switch" node-type="text-pair-switch">
+                            <span class="slide"></span>
+                        </div>
+                    </div>
+                    <!--输出 纠错反馈-->
+                    <div class="textpanel-correct" node-type="textpanel-correct">
+                        <div class="textpanel-correct-textblock">
+                            <textarea class="textinput" style="overflow-x: hidden" node-type="correct-textarea"
+                                placeholder="请输入要正确的译文"></textarea>
+                        </div>
+                        <div class="textpanel-tool tool-close" node-type="correct-clean-btn"></div>
+                        <div class="textpanel-correct-bottom">
+                            <p class="title">您的译文将用于改善翻译质量</p>
+                            <div class="btn-block clearfix">
+                                <a href="javascript:;" class="btn-submit disable"
+                                    node-type="textpanel-correct-submit">提交</a>
+                                <a href="javascript:;" class="btn-cancel" node-type="textpanel-correct-cancel">取消</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 纠错弹窗-->
+                <div class="textpanel-correct-dlg-mask" node-type="textpanel-correct-dlg-mask"></div>
+                <div class="textpanel-correct-dlg" node-type="textpanel-correct-dlg">
+                    <div class="textpanel-correct-dlg-top">
+                        <span class="textpanel-tool tool-close" node-type="textpanel-correct-dlg-close"></span>
+                        <p class="tcdt-title">感谢您的提交！</p>
+                        <p class="tcdt-des">评估通过后，您的译文将被用于改善翻译质量</p>
+                        <div class="tcdt-contact clearfix">
+                            <p class="tcdt-contact-title">更多反馈欢迎联系</p>
+                            <div class="tcdt-contact-btn clearfix">
+                                <a class="tcdt-btn tcdt-btn-qq" href="javascript:;" node-type="tcdt-btn-qq"></a>
+                                <a class="tcdt-btn tcdt-btn-wx" href="javascript:;" node-type="tcdt-btn-wx"></a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textpanel-correct-dlg-bottom">
+                        <div class="textpanel-correct-dlg-bottom-qq clearfix"
+                            node-type="textpanel-correct-dlg-bottom-qq">
+                            <p class="title">官方QQ群 <span
+                                    node-type="textpanel-correct-dlg-bottom-qq-num">147933946</span></p>
+                            <a class="copy-btn" href="javascript:;"
+                                node-type="textpanel-correct-dlg-bottom-qq-copy">复制QQ号</a>
+                        </div>
+                        <div class="textpanel-correct-dlg-bottom-wx" node-type="textpanel-correct-dlg-bottom-wx">
+                            <div class="qrcode"></div>
+                            <p class="title">官方微信号 QQFanyi</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div class="history">
+            <div class="history-top-shadow">
+            </div>
+            <div class="history-container">
+                <div class="history-header">
+                    <span class="history-title">翻译历史</span>
+                    <span class="history-delete-all" node-type="history-all-delete">清空</span>
+                </div>
+                <div class="history-content-wrapper" node-type="history-content"></div>
+                <div class="history-content-null" node-type="history-null">暂无翻译历史</div>
+            </div>
+        </div>
+        <!-- 底部banner -->
+        <div class="textpanel-banner">
+            <div class="textpanel-banner-box">
+                <i class="textpanel-banner-text"></i>
+                <i class="textpanel-banner-text-2"></i>
+                <i class="textpanel-banner-code"></i>
+            </div>
+        </div>
+
+        <div class="dict">
+            <div class="dict-container" node-type="dict-container">
+                <p class="dict-title">您可能关注的词汇释义</p>
+                <div class="dict-words-wrapper" node-type="dict-words-wrapper">
+                    <ul class="dict-words-inner">
+                        <li class="active">very</li>
+                        <li>handsome</li>
+                        <li>body</li>
+                    </ul>
+                </div>
+                <iframe class="dict-iframe" name="words-iframe" scrolling="no" node-type="dict-iframe" id="words-iframe"
+                    height="100%" src="" style="height: 1268px;"></iframe>
+            </div>
+            <div class="dict-banner" node-type="dict-banner">
+                <div class="dict-banner-box">
+                    <i class="dict-banner-text"></i>
+                    <i class="dict-banner-text-2"></i>
+                    <i class="dict-banner-code"></i>
+                </div>
+            </div>
+            <div class="dict-margin" node-type="dict-margin"></div>
+        </div>
+    </div>
+    <div class="layout-wrap">
+
+    </div>
+    <div class="layout-float">
+        <div wb-type="module" wb-module="download" class="download" node-type="download">
+            <div class="download-container">
+                <a class="download-close" node-type="download-close"></a>
+                <div class="download-item">
+                    <div class="download-text"></div>
+                    <div class="download-code"></div>
+                    <a class="download-button download-android" node-type="download-btn-android"
+                        href="/download?os=android&ct=pc_website" target="_blank">
+                    </a>
+                    <a class="download-button download-ios" node-type="download-btn-ios"
+                        href="/download?os=ios&ct=pc_website" target="_blank">
+                    </a>
+                </div>
+                <div class="download-info"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

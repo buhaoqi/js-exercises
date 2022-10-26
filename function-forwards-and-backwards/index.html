@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farwards & Backwards</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: aqua;
+            position: fixed;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+    <script src="./kquery.js"></script>
+</head>
+
+<body>
+    <button>BackWards后退</button>
+    <button>ForWards前进</button>
+    <div class="box" style="background-color: red;"></div>
+    <script>
+        const oDiv = document.querySelector('.box'),
+            backwardsBtn = document.querySelectorAll('button')[0],
+            forwardsBtn = document.querySelectorAll('button')[1]
+
+        forwardsBtn.addEventListener('click', function () {
+            moveFn(oDiv, 'left', 5, 400, function () {
+                moveFn(oDiv, 'top', 5, 400, function () {
+                    moveFn(oDiv, 'left', 5, 50, function () {
+                        moveFn(oDiv, 'top', 5, 50)
+                    })
+                })
+            })
+        })
+        backwardsBtn.addEventListener('click', function () {
+            moveFn(oDiv, 'top', 5, 400, function () {
+                moveFn(oDiv, 'left', 5, 400, function () {
+                    moveFn(oDiv, 'top', 5, 50, function () {
+                        moveFn(oDiv, 'left', 5, 50)
+                    })
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>
