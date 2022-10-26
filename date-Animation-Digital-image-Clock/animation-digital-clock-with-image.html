@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数值图片时钟</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .time {
+            width: 1000px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            margin: 0 auto;
+            border: 1px solid lightskyblue;
+            background-color: lightblue;
+            font-size: 30px;
+        }
+
+        #animation-image-clock {
+            width: 976px;
+            height: 172px;
+            margin: 50px auto;
+            text-align: center;
+            /* border: 10px solid red; */
+        }
+
+        #animation-image-clock ul {
+            display: flex;
+        }
+
+        #animation-image-clock ul li {
+            position: relative;
+            width: 122px;
+            height: 172px;
+            overflow: hidden;
+        }
+
+        #animation-image-clock ul li div {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script src="./kquery.js"></script>
+</head>
+
+<body>
+    <div class="time"></div>
+    <div id="animation-image-clock">
+        <ul>
+            <li>
+                <div><img src="./images/0.jpg" alt=""><img src="./images/0.jpg" alt=""></div>
+            </li>
+            <li>
+                <div><img src="./images/0.jpg" alt=""><img src="./images/0.jpg" alt=""></div>
+            </li>
+            <li>
+                <div><img src="./images/colon1.jpg" alt=""><img src="./images/colon1.jpg" alt=""></div>
+            </li>
+            <li>
+                <div><img src="./images/0.jpg" alt=""><img src="./images/0.jpg" alt=""></div>
+            </li>
+            <li>
+                <div><img src="./images/0.jpg" alt=""><img src="./images/0.jpg" alt=""></div>
+            </li>
+            <li>
+                <div><img src="./images/colon1.jpg" alt=""><img src="./images/colon1.jpg" alt=""></div>
+            </li>
+            <li>
+                <div><img src="./images/0.jpg" alt=""><img src="./images/0.jpg" alt=""></div>
+            </li>
+            <li>
+                <div><img src="./images/0.jpg" alt=""><img src="./images/0.jpg" alt=""></div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        let container = document.querySelector('#animation-image-clock'),
+            aDiv = container.querySelectorAll('div')
+
+        updateTime()
+        setInterval(updateTime, 1000)
+
+        function updateTime() {
+            let currentTime = new Date(),
+                hour = currentTime.getHours(),
+                minute = currentTime.getMinutes(),
+                second = currentTime.getSeconds(),
+                str = ''
+
+
+            str = double(hour) + ':' + double(minute) + ':' + double(second)
+            document.querySelector('.time').innerHTML = str;
+            /****************动画部分*********************/
+            for (let i = 0; i < aDiv.length; i++) {
+                upAnimation(aDiv[i], i)
+            }
+            function upAnimation(el, index) {
+                let oImg1 = el.querySelectorAll('img')[0],
+                    oImg2 = el.querySelectorAll('img')[1]
+
+                if (str.charAt(index) === ':') {
+                    oImg1.src = './images/colon1.jpg'
+                } else {
+                    oImg2.src = './images/' + str.charAt(index) + '.jpg'
+                    if (oImg1.src != oImg2.src) {
+                        moveFn(el, 'top', 5, -172, function () {
+                            oImg1.src = oImg2.src
+                            el.style.top = 0
+                        })
+                    }
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>

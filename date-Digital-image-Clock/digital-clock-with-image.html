@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数值图片时钟</title>
+    <style>
+        .time{
+            width:1000px;
+            height:40px;
+            line-height: 40px;
+            text-align: center;
+            margin:0 auto;
+            border:1px solid lightskyblue;
+            background-color: lightblue;
+            font-size:30px;
+        }
+        .image-clock{
+            width:1200px;
+            margin:50px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="time"></div>
+    <div class="image-clock">
+        <img src="./images/0.jpg" alt="0">
+        <img src="./images/0.jpg" alt="0">
+        <img src="./images/colon1.jpg" alt="0">
+        <img src="./images/0.jpg" alt="0">
+        <img src="./images/0.jpg" alt="0">
+        <img src="./images/colon1.jpg" alt="0">
+        <img src="./images/0.jpg" alt="0">
+        <img src="./images/0.jpg" alt="0">
+    </div>
+    <script>
+        let arrImg = document.querySelectorAll('.image-clock img')
+
+        updateTime()
+        setInterval(updateTime, 1000)
+        
+        function updateTime() {
+            let currentTime = new Date();
+            let hour = currentTime.getHours();
+            let minute = currentTime.getMinutes();
+            let second = currentTime.getSeconds();
+            let str = double(hour) + ':' + double(minute) + ':' + double(second)
+
+            document.querySelector('.time').innerHTML = str;
+
+            for(let i = 0; i < arrImg.length; i++){
+                if(str.charAt(i) === ':'){
+                    arrImg[i].src = './images/colon1.jpg'
+                } else {
+                    arrImg[i].src = './images/' + str.charAt(i) + '.jpg'
+                }
+            }
+        }
+        
+        //double Digits
+        function double(n) {
+            return n > 9 ? "" + n : "0" + n;
+        }
+    </script>
+</body>
+
+</html>
