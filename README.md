@@ -8,4 +8,4 @@ JS练习题
 ## Date对象
 - [输出系统时间](https://buhaoqi.github.io/js-exercises/date-currentTime/currentTime.html)
 - [图片时钟](https://buhaoqi.github.io/js-exercises/date-Digital-image-Clock/digital-clock-with-image.html)
-- [图片时钟动画版](https://buhaoqi.github.io/js-exercises/date-animation-Digital-image-Clock/animation-digital-clock-with-image.html)
+- [图片时钟动画版](https://buhaoqi.github.io/js-exercises/date-animation-image-clock/index.html)
