@@ -25,3 +25,29 @@ function moveFn(ele, attr, step, target, callback) {
 function double(n) {
     return n > 9 ? "" + n : "0" + n;
 }
+
+//
+function opacity(obj, num, target, endFn) {
+	
+    num = getStyle(obj, 'opacity')*100 < target ? num : -num;
+    
+    clearInterval( obj.opacity );
+    
+    obj.opacity = setInterval(function () {
+        
+        var speed = parseInt(getStyle(obj, 'opacity')*100) + num;
+        
+        if ( speed > target && num > 0 || speed < target && num < 0 ) {
+            speed = target;
+        }
+        
+        obj.style.opacity = speed/100;
+        // obj.style.filter = 'alpha(opacity='+ speed +')';
+        
+        if ( speed == target ) {
+            clearInterval( obj.opacity );
+            endFn && endFn();
+        }
+
+    }, 20);
+}
