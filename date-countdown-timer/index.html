@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+    <style>
+        p {
+            text-align: center;
+            font-size: 60px;
+            margin-top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <p></p>
+    <script>
+        let future = new Date('Oct 28, 2022 01:18:09')
+        let timer = setInterval(function () {
+            now = new Date()
+            let s = (future - now) / 1000
+            let days = Math.floor(s / 86400),
+                hours = Math.floor(s % 86400 / 3600),
+                minutes = Math.floor(s % 86400 % 3600 / 60),
+                seconds = Math.floor(s % 60)
+            document.querySelector('p').innerHTML = days + '天' + hours + '时' + minutes + '分' + seconds + '秒'
+            if ( s < 0 ){
+                clearInterval(timer)
+                document.querySelector('p').innerHTML = '结束'
+            }
+        }, 1000)
+
+
+    </script>
+</body>
+
+</html>
+
+
+<!-- 
+倒计时时间 = 未来时间点 - 当前时间点
+  x      =  new Date('Oct 28, 2022 10:10:10') - new Date()
+
+days = Math.floor(s/86400),
+hours = Math.floor(s%86400/3600),
+minutes = Math.floor(s%86400%3600/60),
+seconds = Math.floor(s%60)
+
+ -->

@@ -20,9 +20,9 @@
 			line-height: 50px;
 			font-size: 30px;
 			position: absolute;
-			top: 0;
-			z-index: 2;
-			opacity: 1;
+			/* top: 0; */
+			/* z-index: 2; */
+			/* opacity: 1; */
 			/* 一定得添加 */
 		}
 
@@ -58,77 +58,42 @@
 		<p></p>
 	</div>
 
-
-
 	<script>
 		var oDiv = document.getElementById('box');
 		var aSpan = document.getElementsByTagName('span');
 		var oP = oDiv.getElementsByTagName('p')[0];
-		// var onOff = true;
+		var onOff = true;
 
 		for (var i = 0; i < aSpan.length; i++) {
 			aSpan[i].style.left = i * 50 + 'px';
 		}
 
 		oDiv.onclick = function () {
-			// if( !onOff ) return;
-			// onOff = false;
-			var index = n1 = n2 = 0;
+			var index = 0;
 			var timer = setInterval(function () {
-				move(aSpan[index], 'top', -15, -300, function () {
-					n1++;
-					if (n1 == aSpan.length) {
-						// alert('最后一个top结束了');
-						// endFn('top');
-					}
-				});
-				opacity(aSpan[index], 0,-2, function () {
-					n2++;
-					if (n2 == aSpan.length) {
-						// alert('最后一个opacity结束了');
-						// endFn('opacity');
-					}
-				});
 
-				// 如何找到最后一个运动结束？
-				// 到底是哪个一运动结束的呢？
+				move(aSpan[index], 'top', -13, -300);
+
+				opacity(aSpan[index], -2, 0);
 
 				index++;
-				console.log(index == aSpan.length)
 				if (index == aSpan.length) {
 					clearInterval(timer);
 				}
 			}, 80);
 
-			move(oP, 'width', 13, 500);
-			opacity(oP, 100, 3, function () {
-				opacity(oP, 0, -3, function () {
-					oP.style.width = 0;
-					//alert(1);
-				});
-			});
+			// move( oP, 'width', 13, 500 );
+			// opacity( oP,  3, 100 , function() {
+			// 	opacity( oP, 3, 0 , function() {
+			// 		oP.style.width = 0;
+			// 		//alert(1);
+			// 	});
+			// });
 
 		};
 
-		var arr = [];
-		function endFn(attr) {
-			arr.push(attr);
-
-			// alert( arr.length );
-			var index = 0;
-
-			if (arr.length % 2 == 0) {
-				for (var i = 0; i < aSpan.length; i++) {
-					aSpan[i].style.top = 0;
-					opacity(aSpan[i], 100, 3, function () {
-						index++;
-						if (index == aSpan.length) {
-							onOff = true;
-						}
-					});
-				}
-			}
-		}
 	</script>
+
 </body>
+
 </html>
