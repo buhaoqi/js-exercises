@@ -14,3 +14,4 @@ JS练习题
 - [图片时钟动画版](https://buhaoqi.github.io/js-exercises/date-animation-image-clock/index.html)
 - [倒计时](https://buhaoqi.github.io/js-exercises/date-countdown-timer/index.html)
 - [倒计时器](https://buhaoqi.github.io/js-exercises/date-countdown-timer2/index.html)
+- [日历](https://buhaoqi.github.io/js-exercises/date-calendar/index.html)

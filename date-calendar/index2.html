@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //获取9月最后一天
+        const d1 = new Date(2022,9,0)
+        console.log(d1.getMonth()+1,d1.getDate())//9.30
+
+        //setDate(15)
+        const d2 = new Date()
+        d2.setDate(15) //Sat Oct 15 2022 12:37:24 GMT+0800 (China Standard Time)
+
+        const d3 = new Date()
+        console.log(d3.getMonth()+1,d3.getDate())//10.28
+        console.log(d3.setDate(1))
+        console.log(d3.getMonth()+1,d3.getDate())//10.1
+        console.log(d3.setDate(0))//上个月最后一天
+        console.log(d3.getMonth()+1,d3.getDate())//10.30
+        console.log(d3.setDate(-1))//上个月最后一天的前一天
+        console.log(d3.getMonth()+1,d3.getDate())//8.30
+        console.log(d3.setDate(32))//下个月的第一天
+        console.log(d3.getMonth()+1,d3.getDate())//9.1
+        console.log(d3.setDate(33))//下个月的第一天
+        console.log(d3.getMonth()+1,d3.getDate())//10.3
+
+
+        // console.log(lastMonthFirst())
+        // function lastMonthFirst() {
+        //     var time = new Date();
+        //     var year = time.getFullYear();
+        //     var month = time.getMonth();
+        //     var day = time.getDate();
+        //     if (month < 10) {
+        //         month = "0" + month;
+        //     }
+        //     if (month == 0) {
+        //         year = year - 1;
+        //         month = 12;
+        //     }
+        //     //上个月的第一天
+        //     var v = year + '-' + month + '-' + '0' + 1;
+        //     return v;
+        // }
+
+
+        // //获取上个月最后一天
+        // function lastMonthLast() {
+        //     var time = new Date();
+        //     var year = time.getFullYear();
+        //     var month = time.getMonth();
+        //     var day = time.getDate();
+        //     if (month < 10) {
+        //         month = "0" + month;
+        //     }
+        //     if (month == 0) {
+        //         year = year - 1;
+        //         month = 12;
+        //     }
+
+        //     var lastday = new Date(year, month, 0).getDate();
+        //     //上个月的最后一天
+        //     var v2 = year + '-' + month + '-' + lastday;
+        //     return v2;
+        // }
+
+
+        // //获取这个月的第一天
+        // function MonthFirst() {
+        //     var time = new Date();
+        //     var year = time.getFullYear();
+        //     var month = time.getMonth() + 1;
+        //     if (month < 10) {
+        //         month = "0" + month;
+        //     }
+        //     var v = year + '-' + month + '-' + '0' + 1;
+        //     return v;
+        // }
+
+        // //获取这个月的最后一天
+        // function MonthLast() {
+        //     var time = new Date();
+        //     var year = time.getFullYear();
+        //     var month = time.getMonth() + 1;
+        //     if (month < 10) {
+        //         month = "0" + month;
+        //     }
+        //     var lastday = new Date(year, month, 0).getDate();
+        //     var v = year + '-' + month + '-' + lastday;
+        //     return v;
+        // }
+        // //三个月后的最后一天
+        // function threeMonthLast() {
+        //     var time = new Date();
+        //     var year = time.getFullYear();
+        //     var month = time.getMonth() + 3;
+        //     var day = time.getDate();
+        //     if (month < 10) {
+        //         month = "0" + month;
+        //     }
+        //     if (month == 0) {
+        //         year = year - 1;
+        //         month = 12;
+        //     }
+        //     if (month > 12) {
+        //         year = year + 1;
+        //         month = month - 12;
+        //     }
+
+        //     var lastday = new Date(year, month, 0).getDate();
+        //     var v2 = year + '-' + month + '-' + lastday;
+        //     return v2;
+        // }
+    </script>
+</body>
+
+</html>
