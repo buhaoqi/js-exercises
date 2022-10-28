@@ -1,109 +1,52 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
+/*  重置浏览器默认样式   */
+*{
+    margin:0;
+    padding:0;
+    /* box-sizing: border-box; */
 }
 
-html {
-  font-size: 62.5%;
+
+/*  全局样式   */
+body{
+    font-size: 16px;
+    /* font-family: '-apple-system', 'SF UI Text', Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif; */
+    font-family: Helvetica,Arial,PingFang SC,Hiragino Sans GB,Source Han Sans CN,Roboto,Microsoft Yahei,sans-serif;
+    line-height: 28px;
+}
+.calendar{
+    width:490px;
+    border:5px solid red;
+    overflow: hidden;
+    margin:50px auto 0;
+}
+.flex{
+    display: flex;
+}
+.col span{
+    flex-basis: 70px;
+    flex-grow: 1; /* 设置弹性项目占据剩余空间的比例 1*/
+    text-align: center;
+    height:40px;
+}
+/*  月   */
+.month{
+    text-align: center;
+    height:100px;
+    align-items: center;
+    background-color: aquamarine;
+}
+.month .col{
+    flex-grow: 1;
+}
+.month .col:nth-child(2){
+    flex-grow: 6;
 }
 
-.container {
-  width: 100%;
-  height: 100vh;
-  background-color: #12121f;
-  color: #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/*  周   */
+
+
+/*  日   */
+.days .col{
+    flex-wrap: wrap;
 }
 
-.calendar {
-  width: 45rem;
-  height: 52rem;
-  background-color: #222227;
-  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
-}
-
-.month {
-  width: 100%;
-  height: 12rem;
-  background-color: #167e56;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-  text-align: center;
-  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
-}
-
-.month i {
-  font-size: 2.5rem;
-  cursor: pointer;
-}
-
-.month h1 {
-  font-size: 3rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  margin-bottom: 1rem;
-}
-
-.month p {
-  font-size: 1.6rem;
-}
-
-.weekdays {
-  width: 100%;
-  height: 5rem;
-  padding: 0 0.4rem;
-  display: flex;
-  align-items: center;
-}
-
-.weekdays div {
-  font-size: 1.5rem;
-  font-weight: 400;
-  letter-spacing: 0.1rem;
-  width: calc(44.2rem / 7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
-}
-
-.days {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0.2rem;
-}
-
-.days div {
-  font-size: 1.4rem;
-  margin: 0.3rem;
-  width: calc(40.2rem / 7);
-  height: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
-  transition: background-color 0.2s;
-}
-
-.days div:hover:not(.today) {
-  background-color: #262626;
-  border: 0.2rem solid #777;
-  cursor: pointer;
-}
-
-.prev-date,
-.next-date {
-  opacity: 0.5;
-}
-
-.today {
-  background-color: #167e56;
-}
